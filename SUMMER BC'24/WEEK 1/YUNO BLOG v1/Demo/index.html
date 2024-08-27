@@ -3,90 +3,126 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
     <title>Yuno Blog | Explore The Moon Landings</title>
   </head>
   <body>
     <header>
-      <section>
-        <img src="./imgs/logo.png" alt="Yuno Blog Logo" style="width: 100px" />
+      <section class="logo-container">
+        <img src="./imgs/logo.png" alt="Yuno Blog Logo" class="logo" />
+        <div class="profile-container">
+          <span>Author</span
+          ><img
+            src="./imgs/profile.jpg"
+            alt="Profile Image of James"
+            class="profile-img"
+          />
+        </div>
       </section>
-      <nav>
+      <nav class="nav">
         <button type="button">Space</button>
         <button type="button">Games</button>
-        <button type="button">Outdoors</button>
+        <button type="button">Sports</button>
+        <button type="button">Celebrities</button>
         <button type="button">Books</button>
       </nav>
+      <div class="main-heading">
+        The Historic <span class="moon">Moon</span> landing.
+      </div>
     </header>
     <main>
-      <h2>Explore the moon landings</h2>
-      <div>
+      <div class="media-container">
         <img
           src="./imgs/Aldrin_Apollo_11_original.jpg"
           alt="photo of buzz aldrin on the moon"
         />
-        <p>Photo of buzz aldrin on the moon on July 21 1969</p>
+        <p>Photo of <b>Buzz Aldrin</b> on the moon on July 21 1969</p>
       </div>
       <p>
-        The Historic Moon Landing: A Giant Leap for Mankind On July 20, 1969,
-        the world held its breath as two astronauts from NASA's Apollo 11
-        mission made history. Neil Armstrong and Buzz Aldrin became the first
-        humans to set foot on the Moon, achieving a feat that had captivated the
-        imaginations of people across the globe. This momentous event, watched
-        by millions on live television, marked a significant milestone in human
-        exploration and the space race between the United States and the Soviet
-        Union. After a journey of nearly 240,000 miles, the lunar module, named
-        "Eagle," touched down on the Moon's surface at 20:17 UTC. Armstrong’s
-        first words as he stepped onto the lunar surface at 02:56 UTC on July
-        21, 1969, are forever etched in history: “That’s one small step for [a]
-        man, one giant leap for mankind.” For the next 2 hours and 15 minutes,
-        Armstrong and Aldrin conducted experiments, collected lunar samples, and
-        planted the American flag, symbolizing the monumental achievement of
-        humanity's first steps on another celestial body. During their time on
-        the Moon, Armstrong and Aldrin demonstrated the potential of human
-        ingenuity and the spirit of exploration. Their actions were not just a
-        victory for America, but a milestone for all of humankind. The success
-        of Apollo 11 paved the way for future space exploration and expanded our
-        understanding of the universe. Relive the Moment Experience the awe and
-        wonder of the first moonwalk by watching the short 2-minute video below.
-        It captures some of the most iconic moments of Armstrong and Aldrin’s
-        historic journey, allowing you to witness the incredible achievement
-        that continues to inspire generations.
+        The Historic Moon Landing: A Giant Leap for Mankind On
+        <strong>July 20, 1969</strong>, the world held its breath as two
+        astronauts from NASA's Apollo 11 mission made history.
+        <b>Neil Armstrong</b> and <b>Buzz Aldrin</b> became the first humans to
+        set foot on the Moon, achieving a feat that had captivated the
+        imaginations of people across the globe.
       </p>
-      <ul></ul>
-      <p></p>
-    </main>
-    <footer></footer>
-    <p
-      class="codepen"
-      data-height="300"
-      data-default-tab="html,result"
-      data-slug-hash="QWxmEWW"
-      data-pen-title="Button hover effect"
-      data-user="mortezasharifinia"
-      style="
-        height: 300px;
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid;
-        margin: 1em 0;
-        padding: 1em;
-      "
-    >
-      <span
-        >See the Pen
-        <a href="https://codepen.io/mortezasharifinia/pen/QWxmEWW">
-          Button hover effect</a
+      <p>The Apollo 11 astronauts consisted of:</p>
+      <ul>
+        <li><b>Neil Armstrong</b> - Commander</li>
+        <li><b>Buzz Aldrin</b> - Lunar Module Pilot</li>
+        <li><b>Michael Collins</b> - Command Module Pilot</li>
+      </ul>
+      <p>
+        This momentous event, watched by millions on live television, marked a
+        significant milestone in human exploration and the space race between
+        the United States and the Soviet Union. After a journey of nearly
+        240,000 miles, the lunar module, named "<i>Eagle</i>" touched down on
+        the Moon's surface at 20:17 UTC.
+      </p>
+      <div class="media-container">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/nOcDftgR5UQ?si=LaaqVmE60jjQT8Dn"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+        <p>A short <b>NASA</b> documentation of the daring Adventure</p>
+      </div>
+      <p>
+        Armstrong’s first words as he stepped onto the lunar surface at 02:56
+        UTC on July 21, 1969, are forever etched in history
+        <br /><i class="giant-leap"
+          >“That’s one small step for man, one giant leap for mankind.”</i
         >
-        by Morteza (<a href="https://codepen.io/mortezasharifinia"
-          >@mortezasharifinia</a
-        >) on <a href="https://codepen.io">CodePen</a>.</span
-      >
-    </p>
-    <script
-      async
-      src="https://cpwebassets.codepen.io/assets/embed/ei.js"
-    ></script>
+        <br />
+        For the next 2 hours and 15 minutes, Armstrong and Aldrin conducted
+        experiments, collected lunar samples, and planted the American flag,
+        symbolizing the monumental achievement of humanity's first steps on
+        another celestial body.
+      </p>
+      <p>
+        During their time on the Moon, Armstrong and Aldrin demonstrated the
+        potential of human ingenuity and the spirit of exploration. Their
+        actions were not just a victory for America, but a milestone for all of
+        humankind.
+      </p>
+      <p>
+        The success of Apollo 11 paved the way for future space exploration and
+        expanded our understanding of the universe. Relive the Moment Experience
+        the awe and wonder of the first moonwalk by watching the short 2-minute
+        video below. It captures some of the most iconic moments of Armstrong
+        and Aldrin’s historic journey, allowing you to witness the incredible
+        achievement that continues to inspire generations.
+      </p>
+      <h3>About The Author</h3>
+      <div class="about-author">
+        <img
+          src="./imgs/profile.jpg"
+          alt="Photo Of Nwodoh Daniel"
+          class="profile-img profile-img-2"
+        />
+        <div>
+          <p><b>Name: </b>Nwodoh Daniel</p>
+          <p><b>Institution: </b>Yuno Inc.</p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="author-and-cohort">
+        <span>Built by <a href="#" class="author-name">Nwodoh Daniel</a></span>
+        <span>Yedu Summer BootCamp'24</span>
+      </div>
+      <div>&copy; Yuno Inc. 2024</div>
+    </footer>
   </body>
 </html>

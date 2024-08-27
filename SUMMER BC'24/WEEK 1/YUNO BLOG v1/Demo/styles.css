@@ -1,0 +1,204 @@
+::selection {
+  color: white;
+  background-color: #0b0d17;
+}
+
+*,
+*:link,
+*::after,
+*::before,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 2vw 5vw 0 2vw;
+  font-family: "Barlow", sans-serif;
+  color: #0b0d17;
+}
+
+body > * {
+  max-width: 1200px;
+  margin: auto;
+}
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 90px;
+  height: 38px;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0b0d17;
+  color: white;
+  border-radius: 30px;
+  padding: 6px 9px;
+  gap: 8px;
+}
+
+.profile-img {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+}
+
+.profile-img-2 {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #0b0d17;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.nav > button {
+  /* border: 1px solid #0b0d17;
+  background-color: white;
+  font-size: 16px;
+  letter-spacing: 2.7px;
+  padding: 3px 5px;
+  font-weight: 400;
+  font-family: "Barlow Condensed", sans-serif; */
+  border: 1.5px solid #0b0d17;
+  color: white;
+  background-color: #0b0d17;
+  font-size: 18px;
+  letter-spacing: 2.7px;
+  padding: 7.5px 12.5px;
+  font-weight: 400;
+  font-family: "Barlow Condensed", sans-serif;
+  border-radius: 30px;
+  transition: background-color 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav > button:hover {
+  color: #0b0d17;
+  background-color: white;
+}
+
+.nav > button:not(:last-child) {
+  margin-right: 30px;
+}
+
+.main-heading {
+  font-size: 70px;
+  font-family: "Bellefair", serif;
+  color: #0b0d17;
+  font-family: 400 !important;
+  margin: 50px 0 30px 0;
+  text-transform: uppercase;
+}
+
+.moon {
+  color: white;
+  background-color: #0b0d17;
+}
+
+.media-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  padding: 4px;
+  background-color: #e6e6f8;
+  border: 1px solid rgb(224, 224, 250);
+  color: #686767;
+  border-radius: 17px;
+  margin: 20px auto 30px;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.media-container > img,
+.media-container > iframe {
+  width: 100%;
+  border-radius: 13px;
+}
+
+.media-container > p {
+  margin: 10px 5px;
+}
+
+main > * {
+  max-width: 900px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 2.2;
+  letter-spacing: 0;
+}
+
+main ul {
+  margin: 10px auto;
+  max-width: 800px;
+}
+
+main ul > li {
+  /* list-style: none; */
+}
+
+.giant-leap {
+  font-size: 30px;
+}
+
+.about-author {
+  display: flex;
+  gap: 20px;
+}
+
+footer {
+  margin-top: 30px;
+  background-color: #0b0d17;
+  color: #e6e6f8;
+  padding: 20px;
+  text-align: center;
+}
+
+footer > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.author-and-cohort {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.author-name {
+  text-decoration: none;
+  color: white;
+}
+
+@media only screen and (max-width: 500px) {
+  .author-and-cohort {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .main-heading {
+    font-size: 60px;
+  }
+}
+
+/* Note: This is a simiplified CSS approach */
