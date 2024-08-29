@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="./script.js" defer></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./imgs/app/logo-black.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Final Song • MØ</title>
+  </head>
+  <body>
+    <header>
+      <img src="./imgs/app/logo-black.png" alt="" />
+    </header>
+    <main>
+      <section class="control">
+        <div class="control--back">
+          <img alt="Yuno Inc" data-type="current-song-back-image" />
+          <div class="control--back--overlay"></div>
+        </div>
+        <img
+          src="./imgs/app/logo-black.png"
+          alt="Yuno Inc"
+          data-type="current-song-image"
+        />
+        <div class="control--shadow"></div>
+        <div class="control--details">
+          <div>
+            <p class="control--details--song" data-type="current-song-name">
+              Final Song
+            </p>
+            <p
+              class="control--details--artist"
+              data-type="current-song-artists"
+            >
+              MØ
+            </p>
+          </div>
+          <div class="control--progress">
+            <span class="progress-time" data-type="song-current-time-min"
+              >0:00</span
+            >
+            <input
+              min="0"
+              max="100"
+              value="0"
+              step="0.00000000000000001"
+              type="range"
+              data-type="progress-bar"
+            />
+            <span class="progress-time" data-type="song-duration-min"
+              >0:00</span
+            >
+          </div>
+          <div class="control--controller">
+            <button data-value="prev-song-control">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path
+                  d="M267.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29l0-320c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160L64 241 64 96c0-17.7-14.3-32-32-32S0 78.3 0 96L0 416c0 17.7 14.3 32 32 32s32-14.3 32-32l0-145 11.5 9.6 192 160z"
+                />
+              </svg>
+            </button>
+            <button
+              class="control--controller--main"
+              data-value="main-control"
+              data-type="play-btn"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                <path
+                  d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                />
+              </svg>
+            </button>
+            <button data-value="next-song-control">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path
+                  d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416L0 96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4l192 160L256 241l0-145c0-17.7 14.3-32 32-32s32 14.3 32 32l0 320c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-145-11.5 9.6-192 160z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <ul class="playlist" data-value="playlist">
+        <!-- <li class="playlist--item">
+          <div>
+            <div class="playlist--item--img">
+              <span class="playlist--item--action">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                  <path
+                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                  />
+                </svg>
+              </span>
+              <img src="./imgs/final-song.jpg" alt="Song cover of Final Song" />
+            </div>
+            <div>
+              <p class="playlist--item--song-name">Final Song</p>
+              <p>MØ</p>
+            </div>
+          </div>
+          <div data-type="playlist-item-duration">3:55</div>
+        </li> -->
+      </ul>
+    </main>
+    <footer>
+      <p>Built By <span class="author-name">Nwodoh Daniel</span></p>
+      <p>&copy; Yuno, Inc. 2024</p>
+      <div class="authors-img">
+        <img src="./imgs/app/logo-white-black.png" alt="" />
+        <img src="./imgs/profile.jpg" alt="" />
+      </div>
+    </footer>
+  </body>
+</html>
