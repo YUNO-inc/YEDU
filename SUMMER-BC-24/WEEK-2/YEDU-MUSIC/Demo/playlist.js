@@ -32,27 +32,30 @@ const playlist = [
   {
     name: "The Night We Met",
     artists: ["Lord Huron"],
-    song: "rema-calm-down.mp3",
+    song: "the-night-we-met.mp3",
     image: "the-night-we-met.jpg",
   },
   {
     name: "Arhbo [Arabic Version]",
     artists: ["Ayed", "Nasser Al Kubaisi", "Haneen Hussain", "FIFA Sound"],
-    song: "rema-calm-down.mp3",
+    song: "arhbo.mp3",
     image: "arhbo.jpg",
   },
   {
     name: "Tom's Diner",
     artists: ["AnnenMayKantereit", "Giant Rooks"],
-    song: "rema-calm-down.mp3",
+    song: "toms-diner.mp3",
     image: "toms-diner.jpg",
   },
   {
     name: "Memories",
     artists: ["Maroon 5"],
-    song: "Burna-Boy-Ft-Khalid-Wild-dreams (mp3cut.net).mp3",
+    song: "memories.mp3",
     image: "memories.jpg",
   },
 ];
+
+/* Copyright */
+// All copy rights for these songs are owned by the respective artists. These are recorded from spotify and I have no right to use them commercially lol.
 
 export default playlist;
