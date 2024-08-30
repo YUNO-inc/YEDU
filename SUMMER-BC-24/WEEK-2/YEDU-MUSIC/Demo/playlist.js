@@ -8,25 +8,25 @@ const playlist = [
   {
     name: "Final Song",
     artists: ["MØ"],
-    song: "MØ - Final Song (OutaMatic Remix).ogg",
+    song: "final-song.mp3",
     image: "final-song.jpg",
   },
   {
     name: "Bubblehouse Bounce",
     artists: ["Ruti"],
-    song: "rema-calm-down.mp3",
+    song: "bubblehouse-bounce.mp3",
     image: "bubblehouse-bounce.jpg",
   },
   {
     name: "OMFTR",
     artists: ["Show Dem Camp", "The Cavemen", "Obongjayar", "Nsikak David"],
-    song: "rema-calm-down.mp3",
+    song: "omftr.mp3",
     image: "omftr.jpg",
   },
   {
     name: "A Bar Song (Tipsy)",
     artists: ["Shaboozey"],
-    song: "rema-calm-down.mp3",
+    song: "a-bar-song.mp3",
     image: "a-bar-song.jpg",
   },
   {
