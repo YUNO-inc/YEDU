@@ -55,7 +55,7 @@ const playlist = [
   },
 ];
 
-/* Copyright */
-// All copy rights for these songs are owned by the respective artists. These are recorded from spotify and I have no right to use them commercially lol.
-
 export default playlist;
+
+/* Copyright */
+// All copy rights for these songs are owned by the respective artists. The ones used here was recorded from spotify and I have no right to use them commercially lol.

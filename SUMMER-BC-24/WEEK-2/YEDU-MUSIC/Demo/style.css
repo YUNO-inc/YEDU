@@ -86,11 +86,11 @@ input[type="range"]::-moz-range-thumb {
 }
 
 input[type="range"]:focus::-webkit-slider-thumb {
-  outline: 1px solid var(--theme-white);
+  outline: 2px solid var(--theme-green);
   /* outline-offset: 0.125rem; */
 }
 input[type="range"]:focus::-moz-range-thumb {
-  outline: 1px solid var(--theme-white);
+  outline: 2px solid var(--theme-green);
   /* outline-offset: 0.125rem; */
 }
 
@@ -333,6 +333,13 @@ button.control--controller--main[data-type="play-btn"] > svg {
   color: var(--theme-white);
 }
 
+.playlist--item--song-artists {
+  max-width: 65vw;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 footer {
   text-align: center;
   padding: 2rem 0;
@@ -376,5 +383,23 @@ footer > *:not(:last-child) {
   .control--progress > input {
     max-width: 70%;
     width: 20rem;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .playlist--item--song-artists {
+    max-width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .playlist--item--song-artists {
+    max-width: 55vw;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .playlist--item--song-artists {
+    max-width: 50vw;
   }
 }

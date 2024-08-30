@@ -1,3 +1,12 @@
+function toCapitalFirstLetter(words) {
+  if (!words) return;
+  else
+    return words
+      .split(" ")
+      .map((word) => word[0].toUpperCase() + word.replace(word[0], ""))
+      .join(" ");
+}
+
 class AudioController {
   constructor(playlist = []) {
     this.currentSongIndex = 0;
@@ -91,6 +100,10 @@ class AudioController {
     return `${minutes}:${formattedSeconds}`;
   }
 
+  updatePageTitle(newPageTitle) {
+    document.title = newPageTitle;
+  }
+
   addTimeUnit() {
     const newValue =
       (this.audioElement.currentTime / this.audioElement.duration) * 100;
@@ -117,7 +130,7 @@ class AudioController {
     this.progressBar.value = newValue;
     const duration = this.audioElement.duration;
     const currentTime = (newValue / 100) * duration;
-    this.currentTimeEl.textContent = this.secToMin(currentTime);
+    this.currentTimeEl.textContent = this.secToMin(currentTime) || "0:00";
   }
 
   skipTotime(percent) {
@@ -166,6 +179,8 @@ class AudioController {
       " and "
     )}`;
     this.setSongMins(true);
+    const newPageTitle = `${songData.name} • ${songData.artists.join(", ")}`;
+    this.updatePageTitle(toCapitalFirstLetter(newPageTitle));
   }
 
   next() {
@@ -205,7 +220,7 @@ class AudioController {
             </div>
             <div>
               <p class="playlist--item--song-name">${songData.name}</p>
-              <p>${
+              <p class="playlist--item--song-artists">${
                 songData.artists.length
                   ? songData.artists?.join(", ")
                   : "NO ARTIST"

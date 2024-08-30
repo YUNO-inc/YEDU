@@ -36,17 +36,17 @@
         />
         <div class="control--shadow"></div>
         <div class="control--details">
-          <div>
+          <label for="progress-bar">
             <p class="control--details--song" data-type="current-song-name">
-              Final Song
+              -
             </p>
             <p
               class="control--details--artist"
               data-type="current-song-artists"
             >
-              MØ
+              -
             </p>
-          </div>
+          </label>
           <div class="control--progress">
             <span class="progress-time" data-type="song-current-time-min"
               >0:00</span
@@ -57,6 +57,7 @@
               value="0"
               step="0.00000000000000001"
               type="range"
+              id="progress-bar"
               data-type="progress-bar"
             />
             <span class="progress-time" data-type="song-duration-min"
@@ -107,7 +108,7 @@
             </div>
             <div>
               <p class="playlist--item--song-name">Final Song</p>
-              <p>MØ</p>
+              <p class="playlist--item--song-artists">MØ</p>
             </div>
           </div>
           <div data-type="playlist-item-duration">3:55</div>
