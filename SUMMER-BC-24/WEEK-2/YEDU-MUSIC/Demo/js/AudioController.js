@@ -196,8 +196,9 @@ class AudioController {
   skipTotime(percent) {
     try {
       const newPercent = +percent;
-      console.log(newPercent);
+      console.log("newPercent: ", newPercent);
       const duration = this.audioElement.duration;
+      console.log("duration: ", !duration, duration);
       if (!duration) return;
       const currentTime = (newPercent / 100) * duration;
       this.setAudioCurrentTime(currentTime);
@@ -211,6 +212,10 @@ class AudioController {
   setAudioCurrentTime(currentTime) {
     console.log("setAudioCurrentTime: ", currentTime);
     this.audioElement.currentTime = currentTime;
+    console.log(
+      "this.audioElement.currentTime: ",
+      this.audioElement.currentTime
+    );
   }
 
   play() {
