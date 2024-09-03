@@ -81,9 +81,10 @@ class AudioController {
         // console.log(
         //   "Audio is fully buffered or can be played through without interruption. --CANPLAYTHROUGH--"
         // );
+        console.log(this, "kdffbfger");
         console.log(`EVENT: ${song.name} canplaythrough`);
         const anyCurrentPlayingTime = song.audioElement.currentTime;
-        song.audioElement = new Audio(`./songs/${song.song}`);
+        song.audioElement = this;
         console.log(song.audioElement.currentTime, "prenew");
         song.audioElement.currentSong = anyCurrentPlayingTime;
         console.log();
