@@ -76,20 +76,20 @@ class AudioController {
           this.secToMin(song.audioElement.duration);
       });
       song.audioElement.addEventListener("canplay", function () {
-        console.log(
-          "Audio can start playing and can be seeked within the buffered range. --CANPLAY--"
-        );
+        // console.log(
+        //   "Audio can start playing and can be seeked within the buffered range. --CANPLAY--"
+        // );
       });
       song.audioElement.addEventListener("canplaythrough", function () {
-        console.log(
-          "Audio is fully buffered or can be played through without interruption. --CANPLAYTHROUGH--"
-        );
+        // console.log(
+        //   "Audio is fully buffered or can be played through without interruption. --CANPLAYTHROUGH--"
+        // );
       });
       song.audioElement.addEventListener("seeked", function () {
-        console.log("Seek operation has completed. --SEEKED--");
+        // console.log("Seek operation has completed. --SEEKED--");
       });
       song.audioElement.addEventListener("progress", function () {
-        console.log("Audio is being buffered. --PROGRESS--");
+        // console.log("Audio is being buffered. --PROGRESS--");
       });
     });
   }
@@ -148,6 +148,8 @@ class AudioController {
     else
       this.songDurationEl.textContent =
         this.secToMin(this.audioElement?.duration) || defaultMins;
+    this.watchProgressBar(this.progressBar.value);
+    this.skipTotime(this.progressBar.value);
   }
 
   secToMin(seconds) {
@@ -198,6 +200,7 @@ class AudioController {
   skipTotime(percent) {
     try {
       const newPercent = +percent;
+      console.log(newPercent);
       const duration = this.audioElement.duration;
       if (!duration) return;
       const currentTime = (newPercent / 100) * duration;
@@ -210,6 +213,7 @@ class AudioController {
   }
 
   setAudioCurrentTime(currentTime) {
+    console.log("setAudioCurrentTime: ", currentTime);
     this.audioElement.currentTime = currentTime;
   }
 
