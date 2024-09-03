@@ -39,6 +39,23 @@ class App {
     AudioController.playlist.forEach((song) =>
       song.audioElement.addEventListener("ended", (e) => this.nextSong())
     );
+    this.setMediaSessionEvents();
+  }
+
+  setMediaSessionEvents() {
+    navigator.mediaSession.setActionHandler("play", () => this.play());
+    navigator.mediaSession.setActionHandler("pause", () => this.pause());
+    navigator.mediaSession.setActionHandler("nexttrack", () => this.nextSong());
+    navigator.mediaSession.setActionHandler("previoustrack", () => {
+      this.prevSong();
+    });
+    navigator.mediaSession.setActionHandler("seekto", (details) => {
+      const percent =
+        (details.seekTime / AudioController.audioElement.duration) * 100;
+      this.playlistContainer.innerHTML = `<h1 style='color: white; padding: 2rem'>${details.seekTime} -- ${percent}<h1>`;
+      AudioController.setAudioCurrentTime(details.seekTime);
+      // AudioController.skipTotime(percent);
+    });
   }
 
   setStartOption(e) {

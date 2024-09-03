@@ -12,11 +12,11 @@ class AudioController {
     this.currentSongIndex = 0;
     this.inputSlideIsActive = false;
     this.playlist = playlist;
-
     this.loadDOMElements();
     this.populatePlayList();
     this.newSong(0);
     this.setDOMEvents();
+    this.setMediaSessionData();
   }
 
   loadDOMElements() {
@@ -75,6 +75,68 @@ class AudioController {
         item.querySelector('[data-type="playlist-item-duration"]').textContent =
           this.secToMin(song.audioElement.duration);
       });
+      song.audioElement.addEventListener("canplay", function () {
+        console.log(
+          "Audio can start playing and can be seeked within the buffered range. --CANPLAY--"
+        );
+      });
+      song.audioElement.addEventListener("canplaythrough", function () {
+        console.log(
+          "Audio is fully buffered or can be played through without interruption. --CANPLAYTHROUGH--"
+        );
+      });
+      song.audioElement.addEventListener("seeked", function () {
+        console.log("Seek operation has completed. --SEEKED--");
+      });
+      song.audioElement.addEventListener("progress", function () {
+        console.log("Audio is being buffered. --PROGRESS--");
+      });
+    });
+  }
+
+  setMediaSessionData() {
+    const currentSong = this.playlist[this.currentSongIndex];
+    if (!("mediaSession" in navigator) || !currentSong) return;
+
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: `${currentSong.name} ${
+        currentSong.artists.length > 1
+          ? `(feat. ${currentSong.artists.slice(1).join(", ")})`
+          : ""
+      }`,
+      artist: currentSong.artists[0],
+      artwork: [
+        {
+          src: `./imgs/${currentSong.image}`,
+          sizes: "96x96",
+          type: "image/png",
+        },
+        {
+          src: `./imgs/${currentSong.image}`,
+          sizes: "128x128",
+          type: "image/png",
+        },
+        {
+          src: `./imgs/${currentSong.image}`,
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: `./imgs/${currentSong.image}`,
+          sizes: "256x256",
+          type: "image/png",
+        },
+        {
+          src: `./imgs/${currentSong.image}`,
+          sizes: "384x384",
+          type: "image/png",
+        },
+        {
+          src: `./imgs/${currentSong.image}`,
+          sizes: "512x512",
+          type: "image/png",
+        },
+      ],
     });
   }
 
@@ -139,11 +201,16 @@ class AudioController {
       const duration = this.audioElement.duration;
       if (!duration) return;
       const currentTime = (newPercent / 100) * duration;
-      this.audioElement.currentTime = currentTime;
+      this.setAudioCurrentTime(currentTime);
       this.inputSlideIsActive = false;
-    } catch {
+    } catch (e) {
+      console.log(e);
       return;
     }
+  }
+
+  setAudioCurrentTime(currentTime) {
+    this.audioElement.currentTime = currentTime;
   }
 
   play() {
@@ -153,7 +220,7 @@ class AudioController {
   }
 
   pause({ reset = false } = {}) {
-    if (reset) this.audioElement.currentTime = 0;
+    if (reset) this.setAudioCurrentTime(0);
     this.audioElement.pause();
     this.stopProgressCounter();
   }
@@ -181,6 +248,7 @@ class AudioController {
     this.setSongMins(true);
     const newPageTitle = `${songData.name} • ${songData.artists.join(", ")}`;
     this.updatePageTitle(toCapitalFirstLetter(newPageTitle));
+    this.setMediaSessionData();
   }
 
   next() {
