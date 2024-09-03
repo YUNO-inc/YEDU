@@ -74,16 +74,22 @@ class AudioController {
         if (!item) return;
         item.querySelector('[data-type="playlist-item-duration"]').textContent =
           this.secToMin(song.audioElement.duration);
+        console.log("EVENT: loadedmetadeta");
       });
       song.audioElement.addEventListener("canplay", function () {
         // console.log(
         //   "Audio can start playing and can be seeked within the buffered range. --CANPLAY--"
         // );
       });
-      song.audioElement.addEventListener("canplaythrough", function () {
+      song.audioElement.addEventListener("canplaythrough", function (e) {
         // console.log(
         //   "Audio is fully buffered or can be played through without interruption. --CANPLAYTHROUGH--"
         // );
+        console.log("EVENT: canplaythrough");
+        const anyCurrentPlayingTime = song.audioElement.currentTime;
+        song.audioElement = new Audio(`./songs/${song.song}`);
+        console.log(song.audioElement.currentTime, "prenew");
+        song.audioElement.currentSong = anyCurrentPlayingTime;
       });
       song.audioElement.addEventListener("seeked", function () {
         // console.log("Seek operation has completed. --SEEKED--");
