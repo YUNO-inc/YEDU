@@ -216,6 +216,8 @@ class AudioController {
       "this.audioElement.currentTime: ",
       this.audioElement.currentTime
     );
+    console.log("currentTime: ", currentTime);
+    console.log("this.audioElement.duration: ", this.audioElement.duration);
   }
 
   play() {
