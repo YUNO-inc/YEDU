@@ -47,9 +47,11 @@ class AudioController {
   }
 
   setDOMEvents() {
-    this.audioElement.addEventListener("loadedmetadata", () =>
-      this.setSongMins(true)
-    );
+    this.audioElement.addEventListener("loadedmetadata", () => {
+      this.setSongMins(true);
+      this.watchProgressBar(this.progressBar.value);
+      this.skipTotime(this.progressBar.value);
+    });
 
     this.progressBar.addEventListener("input", (e) => {
       this.inputSlideIsActive = true;
@@ -74,12 +76,6 @@ class AudioController {
         if (!item) return;
         item.querySelector('[data-type="playlist-item-duration"]').textContent =
           this.secToMin(song.audioElement.duration);
-        console.log(`EVENT: ${song.name} loadedmetadeta`);
-      });
-      song.audioElement.addEventListener("canplay", function () {
-        // console.log(
-        //   "Audio can start playing and can be seeked within the buffered range. --CANPLAY--"
-        // );
       });
       song.audioElement.addEventListener("canplaythrough", function (e) {
         // console.log(
@@ -90,12 +86,7 @@ class AudioController {
         song.audioElement = new Audio(`./songs/${song.song}`);
         console.log(song.audioElement.currentTime, "prenew");
         song.audioElement.currentSong = anyCurrentPlayingTime;
-      });
-      song.audioElement.addEventListener("seeked", function () {
-        // console.log("Seek operation has completed. --SEEKED--");
-      });
-      song.audioElement.addEventListener("progress", function () {
-        // console.log("Audio is being buffered. --PROGRESS--");
+        console.log();
       });
     });
   }
@@ -151,11 +142,10 @@ class AudioController {
     this.currentTimeEl.textContent =
       this.secToMin(this.audioElement.currentTime) || defaultMins;
     if (!format) return;
-    else
+    else {
       this.songDurationEl.textContent =
         this.secToMin(this.audioElement?.duration) || defaultMins;
-    this.watchProgressBar(this.progressBar.value);
-    this.skipTotime(this.progressBar.value);
+    }
   }
 
   secToMin(seconds) {
