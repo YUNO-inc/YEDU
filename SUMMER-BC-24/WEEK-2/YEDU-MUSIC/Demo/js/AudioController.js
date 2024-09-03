@@ -74,7 +74,7 @@ class AudioController {
         if (!item) return;
         item.querySelector('[data-type="playlist-item-duration"]').textContent =
           this.secToMin(song.audioElement.duration);
-        console.log("EVENT: loadedmetadeta");
+        console.log(`EVENT: ${song.name} loadedmetadeta`);
       });
       song.audioElement.addEventListener("canplay", function () {
         // console.log(
@@ -85,7 +85,7 @@ class AudioController {
         // console.log(
         //   "Audio is fully buffered or can be played through without interruption. --CANPLAYTHROUGH--"
         // );
-        console.log("EVENT: canplaythrough");
+        console.log(`EVENT: ${song.name} canplaythrough`);
         const anyCurrentPlayingTime = song.audioElement.currentTime;
         song.audioElement = new Audio(`./songs/${song.song}`);
         console.log(song.audioElement.currentTime, "prenew");
