@@ -77,18 +77,6 @@ class AudioController {
         item.querySelector('[data-type="playlist-item-duration"]').textContent =
           this.secToMin(song.audioElement.duration);
       });
-      song.audioElement.addEventListener("canplaythrough", function (e) {
-        // console.log(
-        //   "Audio is fully buffered or can be played through without interruption. --CANPLAYTHROUGH--"
-        // );
-        console.log(this, "kdffbfger");
-        console.log(`EVENT: ${song.name} canplaythrough`);
-        const anyCurrentPlayingTime = song.audioElement.currentTime;
-        song.audioElement = this;
-        console.log(song.audioElement.currentTime, "prenew");
-        song.audioElement.currentSong = anyCurrentPlayingTime;
-        console.log();
-      });
     });
   }
 
@@ -197,9 +185,7 @@ class AudioController {
   skipTotime(percent) {
     try {
       const newPercent = +percent;
-      console.log("newPercent: ", newPercent);
       const duration = this.audioElement.duration;
-      console.log("duration: ", !duration, duration);
       if (!duration) return;
       const currentTime = (newPercent / 100) * duration;
       this.setAudioCurrentTime(currentTime);
@@ -211,14 +197,7 @@ class AudioController {
   }
 
   setAudioCurrentTime(currentTime) {
-    console.log("setAudioCurrentTime: ", currentTime);
     this.audioElement.currentTime = currentTime;
-    console.log(
-      "this.audioElement.currentTime: ",
-      this.audioElement.currentTime
-    );
-    console.log("currentTime: ", currentTime);
-    console.log("this.audioElement.duration: ", this.audioElement.duration);
   }
 
   play() {
