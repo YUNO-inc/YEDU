@@ -38,12 +38,14 @@ app.post(
 );
 
 app.get(
-  "/api/v1/project",
+  "/api/v1/project/:id?",
   catchAsync(async (req, res) => {
-    const projects = await Project.find();
+    console.log(req.params?.id);
+    const projects = await Project.find({ _id: { $ne: req.params?.id } });
 
     res.status(200).json({
       status: "success",
+      results: projects?.length,
       projects,
     });
   })

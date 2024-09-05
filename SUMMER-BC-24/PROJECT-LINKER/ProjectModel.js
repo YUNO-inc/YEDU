@@ -2,7 +2,14 @@ const mongoose = require("mongoose");
 
 const projectSchema = new mongoose.Schema(
   {
-    author: String,
+    author: {
+      type: String,
+      required: [true, "No name for author"],
+    },
+    institution: {
+      type: String,
+      required: [true, "No institution"],
+    },
     projectType: {
       type: String,
       enum: ["yedu-blog", "yedu-music"],

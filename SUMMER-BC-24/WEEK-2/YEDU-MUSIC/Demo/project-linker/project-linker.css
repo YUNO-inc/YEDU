@@ -35,6 +35,7 @@ html {
   border-radius: 1.2rem;
   font-family: inherit;
   z-index: 9998;
+  cursor: pointer;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -69,7 +70,6 @@ html {
   border-radius: 50%;
   background-color: rgba(249, 24, 128, 0.2);
   position: relative;
-  cursor: pointer;
 }
 
 .project-linker--like {
@@ -114,6 +114,10 @@ html {
   color: #686767;
   box-shadow: rgba(50, 50, 93, 0.2) 0px 2px 5px -2px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -2px;
+}
+
+.project-linker--list-item:not(:last-child) {
+  margin-bottom: 2rem;
 }
 
 .project-linker--list-item--details {
