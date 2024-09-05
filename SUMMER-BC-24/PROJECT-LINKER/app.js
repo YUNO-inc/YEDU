@@ -14,6 +14,16 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // Allow requests from any origin
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"); // Allow the GET, POST, PUT, DELETE methods
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  ); // Allow specific headers
+  next();
+});
+
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
@@ -40,7 +50,6 @@ app.post(
 app.get(
   "/api/v1/project/:id?",
   catchAsync(async (req, res) => {
-    console.log(req.params?.id);
     const projects = await Project.find({ _id: { $ne: req.params?.id } });
 
     res.status(200).json({

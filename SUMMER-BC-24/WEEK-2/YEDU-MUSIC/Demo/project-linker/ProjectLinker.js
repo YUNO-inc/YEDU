@@ -1,6 +1,6 @@
 class ProjectLinker {
   constructor() {
-    const projectId = "";
+    const projectId = "66d9dc3dbd086f6f1950bac5";
 
     this.insertProjects();
     this.insertProjectsItems();
@@ -12,8 +12,8 @@ class ProjectLinker {
   }
 
   async getProjects() {
-    const projects = await fetch(
-      "https://yedu-project-linker.onrender.com/api/v1/project/id"
+    const { projects } = await fetch(
+      "https://yedu-project-linker.onrender.com/api/v1/project/66d9dc3dbd086f6f1950bac5"
     );
     return projects;
     [
