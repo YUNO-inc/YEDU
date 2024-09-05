@@ -1,0 +1,24 @@
+{
+  "name": "project-linker",
+  "version": "1.0.0",
+  "description": "Project linker of yedu project submissions",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start:dev": "SET NODE_ENV=development&&nodemon server.js",
+    "start:prod": "SET NODE_ENV=production&&nodemon server.js"
+  },
+  "keywords": [
+    "project-linker",
+    "linker"
+  ],
+  "author": "yedu inc.",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.6.1",
+    "morgan": "^1.10.0"
+  }
+}
