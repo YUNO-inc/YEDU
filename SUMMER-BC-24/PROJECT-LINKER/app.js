@@ -47,6 +47,38 @@ app.post(
   })
 );
 
+app.patch(
+  "/api/v1/like/:id",
+  catchAsync(async (req, res, next) => {
+    const project = await Project.findByIdAndUpdate(
+      req.params?.id,
+      { $inc: { likes: 1 } },
+      { new: true }
+    );
+
+    res.status(200).json({
+      status: "success",
+      project,
+    });
+  })
+);
+
+app.patch(
+  "/api/v1/unlike/:id",
+  catchAsync(async (req, res, next) => {
+    const project = await Project.findByIdAndUpdate(
+      req.params?.id,
+      { $inc: { likes: -1 } },
+      { new: true }
+    );
+
+    res.status(200).json({
+      status: "success",
+      project,
+    });
+  })
+);
+
 app.get(
   "/api/v1/project/:id?",
   catchAsync(async (req, res) => {
@@ -56,6 +88,18 @@ app.get(
       status: "success",
       results: projects?.length,
       projects,
+    });
+  })
+);
+
+app.get(
+  "/api/v1/my-project/:id?",
+  catchAsync(async (req, res) => {
+    const project = await Project.findById(req.params?.id);
+
+    res.status(200).json({
+      status: "success",
+      project,
     });
   })
 );

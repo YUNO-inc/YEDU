@@ -1,6 +1,9 @@
+const API_ROUTE = "https://yedu-project-linker.onrender.com/api/v1";
+
 class ProjectLinker {
   constructor() {
-    const projectId = "66d9dc3dbd086f6f1950bac5";
+    this.projectId = "66d9dc3dbd086f6f1950bac5";
+    this.isLiked = JSON.parse(localStorage.getItem("isLiked"));
 
     this.insertProjects();
     this.insertProjectsItems();
@@ -9,12 +12,14 @@ class ProjectLinker {
   async insertProjects() {
     const body = document.querySelector("body");
     body.insertAdjacentHTML("beforeend", this.projectContainerHtml());
+    const likeBtn = document.querySelector('[data-value="like-btn"]');
+    likeBtn.addEventListener("click", (e) => this.like());
   }
 
   async getProjects() {
     const { projects } = await fetch(
-      "https://yedu-project-linker.onrender.com/api/v1/project/66d9dc3dbd086f6f1950bac5"
-    );
+      `${API_ROUTE}/project/${this.projectId}`
+    ).then((res) => res.json());
     return projects;
     [
       {
@@ -53,6 +58,38 @@ class ProjectLinker {
     projectList.insertAdjacentHTML("beforeend", html);
   }
 
+  async like(projectId = this.projectId) {
+    const toLike = this.isLiked ? false : true;
+    const likeBtn = document.querySelector('[data-value="like-btn"]');
+
+    if (toLike) {
+      likeBtn.dataset.state = "active";
+      try {
+        const data = await fetch(`${API_ROUTE}/like/${projectId}`).then((res) =>
+          res.json()
+        );
+        if (data.status !== "success") throw new Error();
+      } catch (err) {
+        likeBtn.dataset.state = "inactive";
+        return;
+      }
+    } else {
+      likeBtn.dataset.state = "inactive";
+      try {
+        const data = await fetch(`${API_ROUTE}/unlike/${projectId}`).then(
+          (res) => res.json()
+        );
+        if (data.status !== "success") throw new Error();
+      } catch (err) {
+        likeBtn.dataset.state = "active";
+        return;
+      }
+    }
+
+    this.isLiked = toLike;
+    localStorage.setItem("isLiked", this.isLiked);
+  }
+
   projectItem(projectData) {
     return `
     <a href="${projectData.projectUrl}" class="project-linker--list-item">
@@ -76,7 +113,9 @@ class ProjectLinker {
   projectContainerHtml() {
     return `
     <div class="project-linker">
-      <button class="project-linker--snippet">
+      <button class="project-linker--snippet" data-value="like-btn" data-state="${
+        this.isLiked ? "active" : "inactive"
+      }">
         <span>Like this project</span>
         <span class="project-linker--like-container">
           <svg
@@ -99,6 +138,7 @@ class ProjectLinker {
               d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
             />
           </svg>
+          <span data-value="project-linker-like-container-number">11 likes</span>
         </span>
       </button>
       <div class="project-linker--container">
