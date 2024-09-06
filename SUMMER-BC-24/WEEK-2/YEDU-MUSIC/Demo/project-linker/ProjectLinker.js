@@ -2,7 +2,8 @@ const API_ROUTE = "https://yedu-project-linker.onrender.com/api/v1";
 
 class ProjectLinker {
   constructor() {
-    this.projectId = "66d9dc3dbd086f6f1950bac5";
+    this.projectId = "66d9f7d5eda8ddb8526472c3";
+    this.projectId = "66d9f854eda8ddb8526472c7";
     this.isLiked = JSON.parse(localStorage.getItem("isLiked"));
 
     this.insertProjects();
@@ -65,9 +66,9 @@ class ProjectLinker {
     if (toLike) {
       likeBtn.dataset.state = "active";
       try {
-        const data = await fetch(`${API_ROUTE}/like/${projectId}`).then((res) =>
-          res.json()
-        );
+        const data = await fetch(`${API_ROUTE}/like/${projectId}`, {
+          method: "PATCH",
+        }).then((res) => res.json());
         if (data.status !== "success") throw new Error();
       } catch (err) {
         likeBtn.dataset.state = "inactive";
@@ -76,9 +77,9 @@ class ProjectLinker {
     } else {
       likeBtn.dataset.state = "inactive";
       try {
-        const data = await fetch(`${API_ROUTE}/unlike/${projectId}`).then(
-          (res) => res.json()
-        );
+        const data = await fetch(`${API_ROUTE}/unlike/${projectId}`, {
+          method: "PATCH",
+        }).then((res) => res.json());
         if (data.status !== "success") throw new Error();
       } catch (err) {
         likeBtn.dataset.state = "active";
