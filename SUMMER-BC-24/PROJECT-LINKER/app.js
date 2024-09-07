@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const cors = require("cors");
 
 const globalErrorHandler = require("./globalErrorHandler");
 const catchAsync = require("./catchAsync");
@@ -14,15 +15,7 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*"); // Allow requests from any origin
-  res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE"); // Allow the GET, POST, PUT, DELETE methods
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  ); // Allow specific headers
-  next();
-});
+app.use(cors());
 
 // Test middleware
 app.use((req, res, next) => {
@@ -80,26 +73,14 @@ app.patch(
 );
 
 app.get(
-  "/api/v1/project/:id?",
+  "/api/v1/projects",
   catchAsync(async (req, res) => {
-    const projects = await Project.find({ _id: { $ne: req.params?.id } });
+    const projects = await Project.find();
 
     res.status(200).json({
       status: "success",
       results: projects?.length,
       projects,
-    });
-  })
-);
-
-app.get(
-  "/api/v1/my-project/:id?",
-  catchAsync(async (req, res) => {
-    const project = await Project.findById(req.params?.id);
-
-    res.status(200).json({
-      status: "success",
-      project,
     });
   })
 );
