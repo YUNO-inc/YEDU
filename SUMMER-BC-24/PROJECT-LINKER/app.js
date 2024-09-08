@@ -1,3 +1,5 @@
+const path = require("path");
+
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
@@ -16,6 +18,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 app.use(cors());
+app.use("/api/v1", express.static(path.join(__dirname, "public")));
 
 // Test middleware
 app.use((req, res, next) => {

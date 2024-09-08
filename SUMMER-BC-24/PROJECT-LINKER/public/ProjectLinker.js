@@ -2,9 +2,10 @@ const API_ROUTE = "https://yedu-project-linker.onrender.com/api/v1";
 // const API_ROUTE = "http://127.0.0.1:3000/api/v1";
 
 class ProjectLinker {
-  constructor() {
-    this.projectId = "66d9f7d5eda8ddb8526472c3";
-    this.projectId = "66d9f854eda8ddb8526472c7";
+  constructor(projectId) {
+    if (!projectId) throw new Error("Invalid Project id.");
+
+    this.projectId = projectId;
     this.isLiked = JSON.parse(
       localStorage.getItem(`isLiked-${this.projectId}`)
     );
@@ -35,7 +36,8 @@ class ProjectLinker {
   }
 
   async insertProjects() {
-    await this.getProjects();
+    const projects = await this.getProjects();
+    if (this.projects?.length < 1) return;
     const body = document.querySelector("body");
     body.insertAdjacentHTML("beforeend", this.projectContainerHtml());
     const likeBtn = document.querySelector('[data-value="like-btn"]');
@@ -53,6 +55,7 @@ class ProjectLinker {
   }
 
   async like(projectId = this.projectId) {
+    if (this?.LikeIsLoading) return;
     this.LikeIsLoading = true;
 
     const toLike = this.isLiked ? false : true;
@@ -101,7 +104,9 @@ class ProjectLinker {
   projectItem(projectData) {
     return `
     <a href="${projectData.projectUrl}" class="project-linker--list-item">
-        <div class="project-linker--list-item--image"></div>
+        <div class="project-linker--list-item--image" style="background-image: url('${
+          projectData?.projectImg
+        }');"></div>
         <div class="project-linker--list-item--details">
             <img
             src="${projectData.authorImg}"
@@ -162,5 +167,3 @@ class ProjectLinker {
     return `${num}  ${num !== 1 ? "likes" : "like"}`;
   }
 }
-
-export default new ProjectLinker();
