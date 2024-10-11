@@ -19,9 +19,10 @@ layout:
 
 # Welcome
 
-come to the GitBook Starter Template! Here you'll get an overview of all the amazing features GitBook offers to help you build beautiful, interactive documentation.
+Welcome to the resouces page of Yuno Edu (Yedu) boot camp 2024!
+Over the next few weeks, you will get your hands on real-world projects and gain essential skills to start you up in the world of software develeopment. We’re thrilled to have you with us!
 
-You'll see some of the best parts of GitBook in action — and find help on how you can turn this template into your own.
+In this boot camp, you’ll learn the fundamentals the primary web technologies: HTML, CSS, and JavaScript, and by the end, you’ll have built 2 real world projects as part of your portfolio.
 
 ### Jump right in
 
