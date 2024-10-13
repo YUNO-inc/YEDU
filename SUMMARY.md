@@ -4,14 +4,8 @@
 
 ## Getting Started
 
-* [Quickstart](getting-started/quickstart.md)
-* [Publish your docs](getting-started/publish-your-docs.md)
+* [Set Up](getting-started/quickstart.md)
 
-## Basics
+## WEEK 1
 
-* [Editor](basics/editor.md)
-* [Markdown](basics/markdown.md)
-* [Images & media](basics/images-and-media.md)
-* [Interactive blocks](basics/interactive-blocks.md)
-* [OpenAPI](basics/openapi.md)
-* [Integrations](basics/integrations.md)
+* [Introduction to HTML](week-1/introduction-to-html.md)

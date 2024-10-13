@@ -1,4 +1,5 @@
 ---
+icon: door-open
 cover: https://gitbookio.github.io/onboarding-template-images/header.png
 coverY: 0
 layout:
@@ -19,17 +20,14 @@ layout:
 
 # Welcome
 
-Welcome to the resouces page of Yuno Edu (Yedu) boot camp 2024!
-Over the next few weeks, you will get your hands on real-world projects and gain essential skills to start you up in the world of software develeopment. We’re thrilled to have you with us!
+Welcome to the resources page of Yuno Edu (Yedu) boot camp 2024! Over the next few weeks, you will get your hands on real-world projects and gain essential skills to start you up in the world of software development. We’re thrilled to have you with us!
 
 In this boot camp, you’ll learn the fundamentals the primary web technologies: HTML, CSS, and JavaScript, and by the end, you’ll have built 2 real world projects as part of your portfolio.
 
 ### Jump right in
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Getting Started</strong></td><td>Create your first site</td><td><a href=".gitbook/assets/1.png">1.png</a></td><td></td><td><a href="getting-started/quickstart.md">quickstart.md</a></td></tr><tr><td><strong>Basics</strong></td><td>Learn the basics of GitBook</td><td><a href=".gitbook/assets/2.png">2.png</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Publish your docs</strong></td><td>Share your docs online</td><td><a href=".gitbook/assets/3.png">3.png</a></td><td></td><td><a href="getting-started/publish-your-docs.md">publish-your-docs.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Getting Started</strong></td><td>Setup your develeopment environment.</td><td><a href=".gitbook/assets/1.png">1.png</a></td><td></td><td><a href="getting-started/quickstart.md">quickstart.md</a></td></tr><tr><td><strong>Basics</strong></td><td>Learn the basics of GitBook</td><td><a href=".gitbook/assets/2.png">2.png</a></td><td></td><td><a href="broken-reference/">broken-reference</a></td></tr><tr><td><strong>Publish your docs</strong></td><td>Share your docs online</td><td><a href=".gitbook/assets/3.png">3.png</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
 
 People
-
-<iframe width="100%" height="300" src="//jsfiddle.net/Cross_companion/8xbfsoyp/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 People
