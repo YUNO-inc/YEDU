@@ -9,3 +9,7 @@
 ## WEEK 1
 
 * [Introduction to HTML](week-1/introduction-to-html.md)
+
+***
+
+* [HTML tags](html-tags.md)
